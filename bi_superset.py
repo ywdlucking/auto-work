@@ -15,7 +15,7 @@ def post(url, data):
         'Origin':'http://bi.shie.com.cn',
         'Referer':'http://bi.shie.com.cn/superset/sqllab/',
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
-        'X-CSRFToken':'IjM5M2E5MTdiN2I5MTNhYTZmNDQyMDEyMmY3ZDBiOTBiYmJlYjRhNjAi.Y3XdKQ.o2VI1hzdejahyxu-7IU_Wgei5u8'
+        'X-CSRFToken':'IjM5M2E5MTdiN2I5MTNhYTZmNDQyMDEyMmY3ZDBiOTBiYmJlYjRhNjAi.Y4A0jA.ZqFhGAQ_KFOzvJGSictVg_thw9c'
     }
   # print(json.dumps(data))
   return requests.post(url, data=json.dumps(data), headers=headers)
@@ -48,15 +48,18 @@ if __name__ == "__main__":
   
   hmb = pd.read_excel("data/hmb统计.xlsx")
   stat = []
+  print("截止2022-11-30 23:59:00")
   for index, row in hmb.iterrows():
     sql = row[0]
+    # print(sql)
     client_id = random_string_generator(9, string.ascii_letters)
     # print('Random String of length 9 =', client_id)
     data = build_click_house_body(client_id, sql)
     rs = post(url, data)
     result = rs.json()
+    # print(result)
     print(result['data'][0])
     stat.append(result['data'][0][row[1]])
   
-  hmb['2020-11-17'] = stat
+  hmb['2020-11-30'] = stat  
   hmb.to_excel("output/hmb统计.xlsx")
