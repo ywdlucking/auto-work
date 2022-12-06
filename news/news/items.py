@@ -15,3 +15,4 @@ class NewsItem(scrapy.Item):
     news_time = scrapy.Field()
     news_source = scrapy.Field()
     source_url = scrapy.Field()
+    news_body = scrapy.Field()

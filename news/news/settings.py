@@ -37,10 +37,14 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'Referer': 'https://news.163.com/',
+  'Host': 'www.163.com',
+  'Cookie': '_ntes_nnid=902903f6f66c4e74d1e5b95331034df4,1636632537630; _ntes_nuid=902903f6f66c4e74d1e5b95331034df4; WM_TID=K71y172jBPlBFQAABQN%2F3MfNHf0FBXg%2B; _antanalysis_s_id=1669017780633; pver_n_f_l_n3=a; WM_NI=Fobsn6xEYx%2BYYTRipNQrKaGlYOsP8uuKRhlqglwF%2B8mGZIsmYEZGKuimzPaNm%2FBkoWXbvVwvdwhID%2FFuZPWQrV7vB6q1EldfgS35kl8TW57D620Wz0uumZvJvJWlzalTUzk%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6ee85d267f5eb0093d53aa2928ab6d55a979e9aadc152a3a9b69be672b88af9a6f12af0fea7c3b92a86b1ae94ed3ebc9b9799aa539b8c9e8af34693ae8582c6689b91bdb1bb7fb7959e89ef7ba5b4b9a7aa34af9996aaf2679b9b96a8ca7fabb3b6b1e446aff18e8cee5d9cbebab7f67ea8a9a8aac72586ab96b1d65bb28af997c13eb3ef8b8de76ea58dfdd6ea68fc8c99d6b650f6ee00b8f93cb7aba3bbf542b696998df96bb08c9b9bea37e2a3; s_n_f_l_n3=78e4e0be1b14c8491670306160631; W_HPTEXTLINK=old; ne_analysis_trace_id=1670306303683; vinfo_n_f_l_n3=78e4e0be1b14c849.1.4.1670229095726.1670294910496.1670306790725',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -62,9 +66,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'news.pipelines.NewsPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'news.pipelines.NewsPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
